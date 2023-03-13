@@ -10,9 +10,11 @@ const options :AxiosRequestConfig = {
     }
   };
 
-export const getRealTime = async()=>{
+export const getRealTime = async(input:any)=>{
+
+  console.log(input)
     try {
-        const response: AxiosResponse = await axios.request(options);
+        const response: AxiosResponse = await axios.request({...options, params:{q:input}});
         return (response.data);
       } catch (error) {
         console.error(error);
