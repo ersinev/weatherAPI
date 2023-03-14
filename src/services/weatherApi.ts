@@ -5,7 +5,7 @@ const realTimeOptions :AxiosRequestConfig = {
     url: 'https://weatherapi-com.p.rapidapi.com/current.json',
     params: {q: ''},
     headers: {
-      'X-RapidAPI-Key': 'b54c65a96emsh3c731c2d8d3beebp16942djsn3abd168182c9',
+      'X-RapidAPI-Key': process.env.API_KEY,
       'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
     }
   };
