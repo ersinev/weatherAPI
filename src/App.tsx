@@ -6,11 +6,11 @@ import ForecastWeather from './components/ForecastWeather';
 import { getForecast, getRealTime } from "./services/weatherApi";
 import Button from '@mui/material/Button';
 import {RealTimeDataObject} from './types/RealTimeWeather'
-import { ForecastWeatherObject,Forecast } from './types/ForecastWeather';
+import {Forecast } from './types/ForecastWeather';
+import '../src/styles.css'
 function App() {
 
   const [userInput, setuserInput] = useState("" as string)
-  const [errorMessage, seterrorMessage] = useState(false)
   const [realTimeData, setrealTimeData] = useState({} as RealTimeDataObject)  
   const [forecastData, setforecastData] = useState({} as Forecast)  
 

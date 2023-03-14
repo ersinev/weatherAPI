@@ -6,6 +6,7 @@ import { Current, Location } from "../types/RealTimeWeather";
 import Avatar from "@mui/material/Avatar";
 import { RealTimeDataObject } from "../types/RealTimeWeather";
 
+
 interface WeatherProps {
   realtimedata: RealTimeDataObject;
   
@@ -35,23 +36,23 @@ function Weather(props: WeatherProps) {
       {dataLocation.name != undefined ? (
         <Grid container>
           <Grid container>
-            <Grid item xs={6}>
-              <Grid item xs={3}>{`City: ${dataLocation.name}`}</Grid>
-              <Grid item xs={3}>{`Country: ${dataLocation.country}`}</Grid>
+            <Grid item xs={3}>
+              <Grid item xs={3}><h3>{dataLocation.name}</h3></Grid>
+              <Grid item xs={3}><h3>{dataLocation.country}</h3></Grid>
+            </Grid>
+            <Grid item xs={3}>
+              <Grid item xs={3}>
+                <Avatar className="avatar" alt="Remy Sharp" src={dataCurrent.condition.icon}  />
+              </Grid>
+              <Grid item xs={3}>
+                <h3>{dataCurrent.condition.text}</h3>
+              </Grid>
+              <Grid item xs={3}>
+                <h3>{dataCurrent.temp_c} C°</h3>
+              </Grid>
             </Grid>
             <Grid item xs={6}>
-              <Grid item xs={3}>
-                <Avatar alt="Remy Sharp" src={dataCurrent.condition.icon} />
-              </Grid>
-              <Grid item xs={3}>
-                {dataCurrent.condition.text}
-              </Grid>
-              <Grid item xs={3}>
-                {`${dataCurrent.temp_c}C°`}
-              </Grid>
-            </Grid>
-            <Grid item xs={6}>
-              <Grid item xs={3}>{`Local Time: ${dataLocation.localtime}`}</Grid>
+              <Grid item xs={3}>{dataLocation.localtime}</Grid>
               <Grid item xs={3}>
                 Hour
               </Grid>
