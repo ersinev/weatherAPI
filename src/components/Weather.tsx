@@ -34,6 +34,9 @@ function Weather(props:WeatherProps) {
                 <Avatar alt="Remy Sharp" src={dataCurrent.condition.icon} />
               </Grid>
               <Grid item xs={3}>
+                {dataCurrent.condition.text}
+              </Grid>
+              <Grid item xs={3}>
                 {`${dataCurrent.temp_c}C°`}
               </Grid>
             </Grid>
