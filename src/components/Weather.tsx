@@ -1,24 +1,34 @@
 import { Grid } from "@mui/material";
-import Button from "@mui/material/Button";
-import { useState } from "react";
-import { getRealTime } from "../services/weatherApi";
+
+import { useEffect, useState } from "react";
+
 import { Current, Location } from "../types/RealTimeWeather";
 import Avatar from "@mui/material/Avatar";
+import { RealTimeDataObject } from "../types/RealTimeWeather";
 
 interface WeatherProps {
-  cityInput: any;
+  realtimedata: RealTimeDataObject;
+  
 }
-function Weather(props:WeatherProps) {
-  const [dataLocation, setdataLocation] = useState({} as Location);
-  const [dataCurrent, setdataCurrent] = useState({} as Current);
 
-  const getRealTimeWeather = (userInput: any) => {
-    getRealTime(userInput).then((data) => {
-      console.log(data.location);
-      setdataLocation(data.location);
-      setdataCurrent(data.current);
-    });
-  };
+function Weather(props: WeatherProps) {
+  const [dataLocation, setdataLocation] = useState<Location | undefined>(
+    undefined
+  );
+  const [dataCurrent, setdataCurrent] = useState<Current | undefined>(
+    undefined
+  );
+
+  useEffect(() => {
+    setdataLocation(props.realtimedata.location);
+    setdataCurrent(props.realtimedata.current);
+    
+  }, [props.realtimedata]);
+
+  if (!dataLocation || !dataCurrent) {
+    return <></>
+    
+  }
 
   return (
     <>
@@ -49,10 +59,11 @@ function Weather(props:WeatherProps) {
           </Grid>
           <Grid item xs={12}></Grid>
         </Grid>
-      ) : (
-        ""
-      )}
-      <Button onClick={()=>getRealTimeWeather(props.cityInput)}>Get data</Button>
+      ) : 
+        "" 
+      }
+      
+
     </>
   );
 }

@@ -41,7 +41,7 @@ export interface Current {
   gust_kph: number;
 }
 
-export interface RootObject {
+export interface RealTimeDataObject {
   location: Location;
   current: Current;
 }
