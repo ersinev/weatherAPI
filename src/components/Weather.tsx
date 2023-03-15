@@ -34,7 +34,7 @@ function Weather(props: WeatherProps) {
   return (
     <>
       {dataLocation.name != undefined ? (
-        <Grid container>
+        <Grid container className="realtimeweather">
           <Grid container>
             <Grid item xs={3}>
               <Grid item xs={3}><h3>{dataLocation.name}</h3></Grid>
@@ -52,10 +52,8 @@ function Weather(props: WeatherProps) {
               </Grid>
             </Grid>
             <Grid item xs={6}>
-              <Grid item xs={3}>{dataLocation.localtime}</Grid>
-              <Grid item xs={3}>
-                Hour
-              </Grid>
+              <Grid item xs={3}><h3>{dataLocation.localtime}</h3></Grid>
+              
             </Grid>
           </Grid>
           <Grid item xs={12}></Grid>

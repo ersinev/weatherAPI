@@ -19,7 +19,7 @@ const ForecastWeather= (props:any)=> {
   return (
     <>
       {Array.isArray(props.forecastData) &&
-        <Grid container>
+        <Grid container >
           {props.forecastData.map((day: any) => (
             <Grid className="forecastData" item xs={4} key={day.date}>
               <h2>{day.date}</h2>
