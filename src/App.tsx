@@ -7,7 +7,9 @@ import { getForecast, getRealTime } from "./services/weatherApi";
 import Button from '@mui/material/Button';
 import {RealTimeDataObject} from './types/RealTimeWeather'
 import {Forecast } from './types/ForecastWeather';
+import { Routes, Route } from 'react-router-dom'
 import '../src/styles.css'
+import Layout from './components/Layout/Layout';
 function App() {
 
   const [userInput, setuserInput] = useState("" as string)
@@ -38,7 +40,7 @@ function App() {
 
 
   return (
-    <>
+    <Layout>
      <CitySearchInput setInput={setuserInput} />
       <Button
         variant="contained"
@@ -53,7 +55,7 @@ function App() {
       <Weather realtimedata={realTimeData} />
       <ForecastWeather forecastData={forecastData} cityInput={userInput} />
     
-    </>
+    </Layout>
     
   );
 }
