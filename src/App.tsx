@@ -55,6 +55,7 @@ function App() {
                     getRealTimeWeather(userInput);
                     getForecastWeather(userInput);
                   }}
+                  
                 >
                   Get data
                 </Button>
