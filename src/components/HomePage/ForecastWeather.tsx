@@ -1,6 +1,7 @@
 import { Avatar, Grid } from "@mui/material";
 import { useEffect, useState } from "react";
-import { ForecastWeatherObject,Forecast } from "../types/ForecastWeather";
+import { Forecast } from "../../types/ForecastWeather";
+
 
 interface ForecastWeatherProps {
     cityInput: string;

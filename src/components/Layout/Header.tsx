@@ -12,6 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { Link } from 'react-router-dom';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -87,11 +88,11 @@ function Header() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              
+                <MenuItem onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">asdasdad</Typography>
                 </MenuItem>
-              ))}
+              
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -114,15 +115,29 @@ function Header() {
             WeatherAPI
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
+            
               <Button
-                key={page}
+                
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                News
               </Button>
-            ))}
+              <Button
+                
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                News
+              </Button>
+              <Button
+                
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                News
+              </Button>
+           
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -147,11 +162,17 @@ function Header() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+              
+                <MenuItem  >
+                  <Link to={'/profile'}><Typography textAlign="center">Profile</Typography></Link>
                 </MenuItem>
-              ))}
+                <MenuItem >
+                  <Link to={'/settings'}><Typography textAlign="center">Settings</Typography></Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link to={'/login'}><Typography textAlign="center">Logout</Typography></Link>
+                </MenuItem>
+              
             </Menu>
           </Box>
         </Toolbar>

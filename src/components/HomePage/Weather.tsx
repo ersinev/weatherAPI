@@ -1,8 +1,8 @@
 import { Grid } from "@mui/material";
 import { useEffect, useState } from "react";
-import { Current, Location } from "../types/RealTimeWeather";
+import { Current, Location } from "../../types/RealTimeWeather";
 import Avatar from "@mui/material/Avatar";
-import { RealTimeDataObject } from "../types/RealTimeWeather";
+import { RealTimeDataObject } from "../../types/RealTimeWeather";
 
 
 interface WeatherProps {
