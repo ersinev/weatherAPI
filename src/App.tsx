@@ -35,34 +35,34 @@ function App() {
 
   return (
     <>
-       
-      {/* <Layout>
+      <Layout>
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Login />} />
-          <Route path="/" element={<Home setInput={setuserInput} realtimedata={realTimeData} forecastData={forecastData} cityInput={userInput}  />} />
-            
-
-        </Routes> */}
-        <Layout>
-        <Home setInput={setuserInput} realtimedata={realTimeData} forecastData={forecastData} cityInput={userInput}  />
-        <Button
-            variant="contained"
-            onClick={() => {
-              getRealTimeWeather(userInput);
-              getForecastWeather(userInput);
-            }}
-          >
-            Get data
-          </Button>
-          </Layout>
-        {/* <CitySearchInput setInput={setuserInput} />
-          
-
-          <Weather realtimedata={realTimeData} />
-          <ForecastWeather forecastData={forecastData} cityInput={userInput} /> */}
-{/*           
-      </Layout> */}
+          <Route
+            path="/"
+            element={
+              <>
+                <Home
+                  setInput={setuserInput}
+                  realtimedata={realTimeData}
+                  forecastData={forecastData}
+                  cityInput={userInput}
+                />
+                <Button
+                  variant="contained"
+                  onClick={() => {
+                    getRealTimeWeather(userInput);
+                    getForecastWeather(userInput);
+                  }}
+                >
+                  Get data
+                </Button>
+              </>
+            }
+          />
+        </Routes>
+      </Layout>
     </>
   );
 }

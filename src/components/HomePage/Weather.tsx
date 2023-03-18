@@ -18,6 +18,8 @@ function Weather(props: WeatherProps) {
     undefined
   );
 
+  
+
   useEffect(() => {
     setdataLocation(props.realtimedata.location);
     setdataCurrent(props.realtimedata.current);
