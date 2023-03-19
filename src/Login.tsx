@@ -26,7 +26,7 @@ function Copyright(props: any) {
 
 const theme = createTheme();
 
-export default function Login() {
+export default function Login(props:any) {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -34,6 +34,7 @@ export default function Login() {
       email: data.get('email'),
       password: data.get('password'),
     });
+    
   };
 
   return (
@@ -100,6 +101,7 @@ export default function Login() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
+                onClick={()=>props.isLogged(true)}
               >
                 Sign In
               </Button>

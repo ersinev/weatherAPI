@@ -1,6 +1,5 @@
 import "@mui/material";
-
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getForecast, getRealTime } from "./services/weatherApi";
 import Button from "@mui/material/Button";
 import { RealTimeDataObject } from "./types/RealTimeWeather";
@@ -14,6 +13,11 @@ function App() {
   const [userInput, setuserInput] = useState("" as string);
   const [realTimeData, setrealTimeData] = useState({} as RealTimeDataObject);
   const [forecastData, setforecastData] = useState({} as Forecast);
+  const [isLoggedIn, setisLoggedIn] = useState(true)
+ 
+
+
+
 
   const getRealTimeWeather: any = (userInput: string) => {
     if (userInput == "" || userInput == undefined) {
@@ -31,12 +35,19 @@ function App() {
     });
   };
 
+  useEffect(() => {
+    console.log(isLoggedIn)
+  }, [isLoggedIn])
+  
+ 
   return (
     <>
-      <Layout>
+      <Layout isLoggedIn={setisLoggedIn}>
         <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/profile" element={<Login />} />
+          
+          {isLoggedIn?
+          <>
+          <Route path="/profile" element={<Login isLogged={setisLoggedIn} />} />
           <Route
             path="/"
             element={
@@ -59,6 +70,13 @@ function App() {
               </>
             }
           />
+          </>
+
+          :
+          
+          <Route path='/' element={<Login/>} />
+        }
+        
         </Routes>
       </Layout>
     </>

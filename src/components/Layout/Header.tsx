@@ -14,7 +14,7 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { Link } from "react-router-dom";
 
-function Header() {
+function Header(props:any) {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -42,7 +42,9 @@ function Header() {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
-          <Typography
+          
+          <Link to={'/'}>
+            <Typography
             variant="h6"
             noWrap
             component="a"
@@ -59,6 +61,7 @@ function Header() {
           >
             WeatherAPI
           </Typography>
+          </Link>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -110,7 +113,7 @@ function Header() {
             WeatherAPI
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            <Link to={"/asdasd"}>
+            <Link to={"/news"}>
               <Button
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
@@ -165,8 +168,8 @@ function Header() {
                 </Link>
               </MenuItem>
               <MenuItem>
-                <Link to={"/login"}>
-                  <Typography textAlign="center">Logout</Typography>
+                <Link to={"/"}>
+                  <Button onClick={()=>{props.isLoggedIn(false)}}><Typography  textAlign="center">Logout</Typography></Button>
                 </Link>
               </MenuItem>
             </Menu>
