@@ -1,8 +1,6 @@
 import "@mui/material";
-import Weather from "./components/HomePage/Weather";
-import CitySearchInput from "./components/HomePage/CitySearchInput";
+
 import { useState } from "react";
-import ForecastWeather from "./components/HomePage/ForecastWeather";
 import { getForecast, getRealTime } from "./services/weatherApi";
 import Button from "@mui/material/Button";
 import { RealTimeDataObject } from "./types/RealTimeWeather";
@@ -55,7 +53,6 @@ function App() {
                     getRealTimeWeather(userInput);
                     getForecastWeather(userInput);
                   }}
-                  
                 >
                   Get data
                 </Button>
