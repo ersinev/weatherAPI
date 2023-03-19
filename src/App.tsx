@@ -13,7 +13,7 @@ function App() {
   const [userInput, setuserInput] = useState("" as string);
   const [realTimeData, setrealTimeData] = useState({} as RealTimeDataObject);
   const [forecastData, setforecastData] = useState({} as Forecast);
-  const [isLoggedIn, setisLoggedIn] = useState(true)
+  const [isLoggedIn, setisLoggedIn] = useState(false)
  
 
 
@@ -42,41 +42,37 @@ function App() {
  
   return (
     <>
-      <Layout isLoggedIn={setisLoggedIn}>
+      <Layout logout={setisLoggedIn}>
         <Routes>
-          
-          {isLoggedIn?
-          <>
-          <Route path="/profile" element={<Login isLogged={setisLoggedIn} />} />
-          <Route
-            path="/"
-            element={
-              <>
-                <Home
-                  setInput={setuserInput}
-                  realtimedata={realTimeData}
-                  forecastData={forecastData}
-                  cityInput={userInput}
-                />
-                <Button
-                  variant="contained"
-                  onClick={() => {
-                    getRealTimeWeather(userInput);
-                    getForecastWeather(userInput);
-                  }}
-                >
-                  Get data
-                </Button>
-              </>
-            }
-          />
-          </>
-
-          :
-          
-          <Route path='/' element={<Login/>} />
-        }
-        
+          {isLoggedIn ? (
+            <>
+              <Route path="/profile" element={<Login />} />
+              <Route
+                path="/"
+                element={
+                  <>
+                    <Home
+                      setInput={setuserInput}
+                      realtimedata={realTimeData}
+                      forecastData={forecastData}
+                      cityInput={userInput}
+                    />
+                    <Button
+                      variant="contained"
+                      onClick={() => {
+                        getRealTimeWeather(userInput);
+                        getForecastWeather(userInput);
+                      }}
+                    >
+                      Get data
+                    </Button>
+                  </>
+                }
+              />
+            </>
+          ) : (
+            <Route path="/" element={<Login login={setisLoggedIn}  />} />
+          )}
         </Routes>
       </Layout>
     </>

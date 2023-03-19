@@ -169,7 +169,7 @@ function Header(props:any) {
               </MenuItem>
               <MenuItem>
                 <Link to={"/"}>
-                  <Button onClick={()=>{props.isLoggedIn(false)}}><Typography  textAlign="center">Logout</Typography></Button>
+                  <Button onClick={()=>{props.logout(false)}}><Typography  textAlign="center">Logout</Typography></Button>
                 </Link>
               </MenuItem>
             </Menu>

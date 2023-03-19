@@ -1,10 +1,10 @@
 import { BrowserRouter } from 'react-router-dom'
 import Footer from './Footer'
 import Header from './Header'
-function Layout({children,isLoggedIn}:any) {
+function Layout({children,logout}:any) {
   return (
     <BrowserRouter>
-      <Header isLoggedIn={isLoggedIn}/>
+      <Header logout={logout}/>
       {children}
       <Footer/>
     </BrowserRouter>

@@ -34,7 +34,6 @@ export default function Login(props:any) {
       email: data.get('email'),
       password: data.get('password'),
     });
-    
   };
 
   return (
@@ -101,7 +100,7 @@ export default function Login(props:any) {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
-                onClick={()=>props.isLogged(true)}
+                onClick={()=>{props.login(true)}}
               >
                 Sign In
               </Button>
