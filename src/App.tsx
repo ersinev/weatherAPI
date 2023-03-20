@@ -9,7 +9,7 @@ import "../src/styles.css";
 import Layout from "./components/Layout/Layout";
 import Login from "./components/Authorization/Login";
 import Home from "./components/HomePage/Home";
-import SignIn from "./components/Authorization/SignIn";
+import SignIn from "./components/Authorization/SignUp";
 function App() {
   const [userInput, setuserInput] = useState("" as string);
   const [realTimeData, setrealTimeData] = useState({} as RealTimeDataObject);
