@@ -10,6 +10,7 @@ import Layout from "./components/Layout/Layout";
 import Login from "./components/Authorization/Login";
 import Home from "./components/HomePage/Home";
 import SignIn from "./components/Authorization/SignUp";
+import SignUp from "./components/Authorization/SignUp";
 function App() {
   const [userInput, setuserInput] = useState("" as string);
   const [realTimeData, setrealTimeData] = useState({} as RealTimeDataObject);
@@ -45,7 +46,7 @@ function App() {
     <>
       <Layout logout={setisLoggedIn}>
         <Routes>
-        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
 
         
         <Route path="/profile" element={<Login />} />
