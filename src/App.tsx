@@ -7,8 +7,9 @@ import { Forecast } from "./types/ForecastWeather";
 import { Routes, Route } from "react-router-dom";
 import "../src/styles.css";
 import Layout from "./components/Layout/Layout";
-import Login from "./Login";
+import Login from "./components/Authorization/Login";
 import Home from "./components/HomePage/Home";
+import SignIn from "./components/Authorization/SignIn";
 function App() {
   const [userInput, setuserInput] = useState("" as string);
   const [realTimeData, setrealTimeData] = useState({} as RealTimeDataObject);
@@ -44,9 +45,13 @@ function App() {
     <>
       <Layout logout={setisLoggedIn}>
         <Routes>
+        <Route path="/signin" element={<SignIn />} />
+
+        
+        <Route path="/profile" element={<Login />} />
           {isLoggedIn ? (
             <>
-              <Route path="/profile" element={<Login />} />
+              
               <Route
                 path="/"
                 element={
