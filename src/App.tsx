@@ -51,10 +51,11 @@ function App() {
       <Layout logout={setisLoggedIn}>
         <Routes>
           <Route path="/signup" element={<SignUp/>} />
+          <Route path="/news" element={<News/>} />
 
           {isLoggedIn ? (
             <>
-              <Route path="/news" element={<News/>} />
+              
 
               <Route path="/profile" element={<Profile/>} />
 
