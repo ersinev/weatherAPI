@@ -80,6 +80,7 @@ export default function Login(props:any) {
                 name="email"
                 autoComplete="email"
                 autoFocus
+                onChange={(e)=>{props.userLoginEmail(e.target.value)}}
               />
               <TextField
                 margin="normal"
@@ -90,6 +91,7 @@ export default function Login(props:any) {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={(e)=>{props.userLoginPassword(e.target.value)}}
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}

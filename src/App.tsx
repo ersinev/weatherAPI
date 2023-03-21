@@ -9,20 +9,21 @@ import "../src/styles.css";
 import Layout from "./components/Layout/Layout";
 import Login from "./components/Authorization/Login";
 import Home from "./components/HomePage/Home";
-import SignIn from "./components/Authorization/SignUp";
+
 import SignUp from "./components/Authorization/SignUp";
+import News from "./components/News/News";
+import Profile from "./components/Profile/Profile";
 function App() {
+  const [userLoginEmail, setuserLoginEmail] = useState("")
+  const [userLoginPassword, setuserLoginPassword] = useState("")
+
   const [userInput, setuserInput] = useState("" as string);
   const [realTimeData, setrealTimeData] = useState({} as RealTimeDataObject);
   const [forecastData, setforecastData] = useState({} as Forecast);
-  const [isLoggedIn, setisLoggedIn] = useState(false)
- 
-
-
-
+  const [isLoggedIn, setisLoggedIn] = useState(false);
 
   const getRealTimeWeather: any = (userInput: string) => {
-    if (userInput == "" || userInput == undefined) {
+    if (userInput === "" || userInput === undefined) {
     } else {
       getRealTime(userInput).then((data) => {
         setrealTimeData(data);
@@ -38,21 +39,25 @@ function App() {
   };
 
   useEffect(() => {
-    console.log(isLoggedIn)
-  }, [isLoggedIn])
-  
- 
+    console.log(isLoggedIn);
+  }, [isLoggedIn]);
+
+  console.log(userLoginEmail)
+  console.log(userLoginPassword)
+
+
   return (
     <>
       <Layout logout={setisLoggedIn}>
         <Routes>
-        <Route path="/signup" element={<SignUp />} />
+          <Route path="/signup" element={<SignUp/>} />
 
-        
-        <Route path="/profile" element={<Login />} />
           {isLoggedIn ? (
             <>
-              
+              <Route path="/news" element={<News/>} />
+
+              <Route path="/profile" element={<Profile/>} />
+
               <Route
                 path="/"
                 element={
@@ -77,7 +82,7 @@ function App() {
               />
             </>
           ) : (
-            <Route path="/" element={<Login login={setisLoggedIn}  />} />
+            <Route path="/" element={<Login userLoginEmail={setuserLoginEmail} userLoginPassword={setuserLoginPassword} login={setisLoggedIn} />} />
           )}
         </Routes>
       </Layout>

@@ -106,7 +106,7 @@ function Header(props:any) {
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
+              color: "white",
               textDecoration: "none",
             }}
           >
@@ -159,14 +159,10 @@ function Header(props:any) {
             >
               <MenuItem>
                 <Link to={"/profile"}>
-                  <Typography textAlign="center">Profile</Typography>
+                  <Button><Typography textAlign="center">Profile</Typography></Button>
                 </Link>
               </MenuItem>
-              <MenuItem>
-                <Link to={"/settings"}>
-                  <Typography textAlign="center">Settings</Typography>
-                </Link>
-              </MenuItem>
+             
               <MenuItem>
                 <Link to={"/"}>
                   <Button onClick={()=>{props.logout(false)}}><Typography  textAlign="center">Logout</Typography></Button>
