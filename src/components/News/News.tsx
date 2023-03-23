@@ -52,7 +52,7 @@ function News() {
         Get data
       </Button>
 
-      <Grid container >
+      {/* <Grid container >
         {news?
           news.map((eachnew: any) => {
             return (
@@ -78,7 +78,7 @@ function News() {
               </Card>
             );
           }):<h1>Enter a valid topic please</h1>}
-      </Grid>
+      </Grid> */}
     </>
   );
 }
