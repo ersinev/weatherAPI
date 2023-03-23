@@ -37,7 +37,7 @@ function News() {
       >
         <TextField
           id="outlined-basic"
-          label="Enter City Name"
+          label="Search a topic"
           variant="outlined"
           onChange={(e: any) => setsingleTopic(e.target.value)}
         />
@@ -53,7 +53,7 @@ function News() {
       </Button>
 
       <Grid container >
-        {news &&
+        {news?
           news.map((eachnew: any) => {
             return (
               <Card sx={{ maxWidth: 345, margin:'5px' }}>
@@ -77,7 +77,7 @@ function News() {
                 </CardActions>
               </Card>
             );
-          })}
+          }):<h1>Enter a valid topic please</h1>}
       </Grid>
     </>
   );
