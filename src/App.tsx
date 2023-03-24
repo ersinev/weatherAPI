@@ -46,49 +46,49 @@ function App() {
   console.log(userLoginPassword)
 
 
-  return (
-    <>
-      <Layout logout={setisLoggedIn}>
-        <Routes>
-          <Route path="/signup" element={<SignUp/>} />
-          <Route path="/news" element={<News/>} />
+  // return (
+  //   <>
+  //     <Layout logout={setisLoggedIn}>
+  //       <Routes>
+  //         <Route path="/signup" element={<SignUp/>} />
+  //         <Route path="/news" element={<News/>} />
 
-          {isLoggedIn ? (
-            <>
+  //         {isLoggedIn ? (
+  //           <>
               
 
-              <Route path="/profile" element={<Profile/>} />
+  //             <Route path="/profile" element={<Profile/>} />
 
-              <Route
-                path="/"
-                element={
-                  <>
-                    <Home
-                      setInput={setuserInput}
-                      realtimedata={realTimeData}
-                      forecastData={forecastData}
-                      cityInput={userInput}
-                    />
-                    <Button
-                      variant="contained"
-                      onClick={() => {
-                        getRealTimeWeather(userInput);
-                        getForecastWeather(userInput);
-                      }}
-                    >
-                      Get data
-                    </Button>
-                  </>
-                }
-              />
-            </>
-          ) : (
-            <Route path="/" element={<Login userLoginEmail={setuserLoginEmail} userLoginPassword={setuserLoginPassword} login={setisLoggedIn} />} />
-          )}
-        </Routes>
-      </Layout>
-    </>
-  );
+  //             <Route
+  //               path="/"
+  //               element={
+  //                 <>
+  //                   <Home
+  //                     setInput={setuserInput}
+  //                     realtimedata={realTimeData}
+  //                     forecastData={forecastData}
+  //                     cityInput={userInput}
+  //                   />
+  //                   <Button
+  //                     variant="contained"
+  //                     onClick={() => {
+  //                       getRealTimeWeather(userInput);
+  //                       getForecastWeather(userInput);
+  //                     }}
+  //                   >
+  //                     Get data
+  //                   </Button>
+  //                 </>
+  //               }
+  //             />
+  //           </>
+  //         ) : (
+  //           <Route path="/" element={<Login userLoginEmail={setuserLoginEmail} userLoginPassword={setuserLoginPassword} login={setisLoggedIn} />} />
+  //         )}
+  //       </Routes>
+  //     </Layout>
+  //   </>
+  // );
 }
 
 export default App;
