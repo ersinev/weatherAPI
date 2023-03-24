@@ -46,15 +46,15 @@ function App() {
   console.log(userLoginPassword)
 
 
-  // return (
-  //   <>
-  //     <Layout logout={setisLoggedIn}>
-  //       <Routes>
-  //         <Route path="/signup" element={<SignUp/>} />
-  //         <Route path="/news" element={<News/>} />
+  return (
+    <>
+      <Layout logout={setisLoggedIn}>
+        <Routes>
+          <Route path="/signup" element={<SignUp/>} />
+          <Route path="/news" element={<News/>} />
 
-  //         {isLoggedIn ? (
-  //           <>
+          {isLoggedIn ? (
+            <>
               
 
   //             <Route path="/profile" element={<Profile/>} />
