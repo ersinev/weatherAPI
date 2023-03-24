@@ -57,38 +57,38 @@ function App() {
             <>
               
 
-  //             <Route path="/profile" element={<Profile/>} />
+              <Route path="/profile" element={<Profile/>} />
 
-  //             <Route
-  //               path="/"
-  //               element={
-  //                 <>
-  //                   <Home
-  //                     setInput={setuserInput}
-  //                     realtimedata={realTimeData}
-  //                     forecastData={forecastData}
-  //                     cityInput={userInput}
-  //                   />
-  //                   <Button
-  //                     variant="contained"
-  //                     onClick={() => {
-  //                       getRealTimeWeather(userInput);
-  //                       getForecastWeather(userInput);
-  //                     }}
-  //                   >
-  //                     Get data
-  //                   </Button>
-  //                 </>
-  //               }
-  //             />
-  //           </>
-  //         ) : (
-  //           <Route path="/" element={<Login userLoginEmail={setuserLoginEmail} userLoginPassword={setuserLoginPassword} login={setisLoggedIn} />} />
-  //         )}
-  //       </Routes>
-  //     </Layout>
-  //   </>
-  // );
+              <Route
+                path="/"
+                element={
+                  <>
+                    <Home
+                      setInput={setuserInput}
+                      realtimedata={realTimeData}
+                      forecastData={forecastData}
+                      cityInput={userInput}
+                    />
+                    <Button
+                      variant="contained"
+                      onClick={() => {
+                        getRealTimeWeather(userInput);
+                        getForecastWeather(userInput);
+                      }}
+                    >
+                      Get data
+                    </Button>
+                  </>
+                }
+              />
+            </>
+          ) : (
+            <Route path="/" element={<Login userLoginEmail={setuserLoginEmail} userLoginPassword={setuserLoginPassword} login={setisLoggedIn} />} />
+          )}
+        </Routes>
+      </Layout>
+    </>
+  );
 }
 
 export default App;
