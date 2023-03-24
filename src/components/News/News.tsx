@@ -15,14 +15,22 @@ import {
 function News() {
   const [singleTopic, setsingleTopic] = useState("");
   const [news, setnews] = useState([] as any);
+
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const day = String(today.getDate()).padStart(2, "0");
+  const currentDate = `${year}-${month}-${day}`;
+
   const getdata = async (topic: any) => {
     let res = await fetch(
-      `https://newsapi.org/v2/everything?q=${topic}&from=2023-02-23&sortBy=publishedAt&apiKey=c0936d28ce4548bd94f3b38fc87554d1`
+      `https://newsapi.org/v2/everything?q=${topic}&from=${`${year}-${month}-${today}`}&sortBy=publishedAt&apiKey=c0936d28ce4548bd94f3b38fc87554d1`
     );
     let data = await res.json();
     setnews(data.articles);
     console.log(data.articles);
     console.log(news);
+    
   };
 
   return (
@@ -52,11 +60,11 @@ function News() {
         Get data
       </Button>
 
-      <Grid container >
-        {news?
+      <Grid container>
+        {news ? (
           news.map((eachnew: any) => {
             return (
-              <Card sx={{ maxWidth: 345, margin:'5px' }}>
+              <Card sx={{ maxWidth: 345, margin: "5px" }}>
                 <CardMedia
                   sx={{ height: 140 }}
                   image={eachnew.urlToImage}
@@ -77,7 +85,10 @@ function News() {
                 </CardActions>
               </Card>
             );
-          }):<h1>Enter a valid topic please</h1>}
+          })
+        ) : (
+          <h1>Enter a valid topic please</h1>
+        )}
       </Grid>
     </>
   );
