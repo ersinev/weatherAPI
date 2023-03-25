@@ -47,81 +47,86 @@ function News() {
 
   return (
     <>
-      <Box
-        component="form"
-        sx={{
-          "& > :not(style)": { m: 1, width: "25ch" },
-        }}
-        noValidate
-        autoComplete="off"
-      >
-        <TextField
-          id="outlined-basic"
-          label="Search a topic"
-          variant="outlined"
-          onChange={(e: any) => setsingleTopic(e.target.value)}
-        />
-      </Box>
+      <Grid sx={{backgroundColor:"rgb(148, 185, 255)"}}>
+        <Grid container sx={{ display: "flex", justifyContent: "center" }}>
+          <Box
+            component="form"
+            sx={{
+              "& > :not(style)": { m: 1, width: "25ch" },
+            }}
+            noValidate
+            autoComplete="off"
+          >
+            <TextField
+              id="outlined-basic"
+              label="Search a topic"
+              variant="outlined"
+              sx={{backgroundColor:"whitesmoke"}}
+              onChange={(e: any) => setsingleTopic(e.target.value)}
+            />
+          </Box>
 
-      <Button
-        variant="contained"
-        onClick={() => {
-          getdata(singleTopic);
-        }}
-      >
-        Get data
-      </Button>
-
-      <Grid container sx={{display: 'flex', justifyContent: 'center'}}>
-        {news.length > 0
-          ? news.map((eachnew: any) => {
-              return (
-                <Card sx={{ maxWidth: 345, margin: "5px" }}>
-                  <CardMedia
-                    sx={{ height: 140 }}
-                    image={eachnew.urlToImage}
-                    title="green iguana"
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      {eachnew.title}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {eachnew.content}
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small" href={eachnew.url} target="_blank">
-                      Read more
-                    </Button>
-                  </CardActions>
-                </Card>
-              );
-            })
-          : latelyNews.map((eachnew: any) => {
-              return (
-                <Card sx={{ maxWidth: 345, margin: "5px" }}>
-                  <CardMedia
-                    sx={{ height: 140 }}
-                    image={eachnew.urlToImage}
-                    title="green iguana"
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      {eachnew.title}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {eachnew.content}
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small" href={eachnew.url} target="_blank">
-                      Read more
-                    </Button>
-                  </CardActions>
-                </Card>
-              );
-            })}
+          <Button
+            sx={{ height: "56px", m: 1, width: "25ch" }}
+            variant="contained"
+            onClick={() => {
+              getdata(singleTopic);
+            }}
+          >
+            Get data
+          </Button>
+        </Grid>
+        <Grid container sx={{ display: "flex", justifyContent: "center" }}>
+          {news.length > 0
+            ? news.map((eachnew: any) => {
+                return (
+                  <Card sx={{ maxWidth: 345, margin: "5px" }}>
+                    <CardMedia
+                      sx={{ height: 140 }}
+                      image={eachnew.urlToImage}
+                      title="green iguana"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                        {eachnew.title}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        {eachnew.content}
+                      </Typography>
+                    </CardContent>
+                    <CardActions>
+                      <Button size="small" href={eachnew.url} target="_blank">
+                        Read more
+                      </Button>
+                    </CardActions>
+                  </Card>
+                );
+              })
+            : latelyNews.map((eachnew: any) => {
+                return (
+                  <Card sx={{ maxWidth: 345, margin: "5px" }}>
+                    <CardMedia
+                      sx={{ height: 140 }}
+                      image={eachnew.urlToImage}
+                      title="green iguana"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                        {eachnew.title}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        {eachnew.content}
+                      </Typography>
+                    </CardContent>
+                    <CardActions>
+                      <Button size="small" href={eachnew.url} target="_blank">
+                        Read more
+                      </Button>
+                    </CardActions>
+                  </Card>
+                );
+              })}
+        </Grid>
       </Grid>
     </>
   );
