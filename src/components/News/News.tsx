@@ -48,7 +48,7 @@ function News() {
   return (
     <>
       <Grid sx={{backgroundColor:"rgb(148, 185, 255)"}}>
-        <Grid container sx={{ display: "flex", justifyContent: "center" }}>
+        {/* <Grid container sx={{ display: "flex", justifyContent: "center" }}>
           <Box
             component="form"
             sx={{
@@ -75,7 +75,7 @@ function News() {
           >
             Get data
           </Button>
-        </Grid>
+        </Grid> */}
         <Grid container sx={{ display: "flex", justifyContent: "center" }}>
           {news.length > 0
             ? news.map((eachnew: any) => {
