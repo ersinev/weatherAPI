@@ -15,6 +15,7 @@ import {
 function News() {
   const [singleTopic, setsingleTopic] = useState("");
   const [news, setnews] = useState([] as any);
+  const [latelyNews, setlatelyNews] = useState([] as any);
 
   const today = new Date();
   const year = today.getFullYear();
@@ -30,8 +31,19 @@ function News() {
     setnews(data.articles);
     console.log(data.articles);
     console.log(news);
-    
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      let res = await fetch(
+        `https://newsapi.org/v2/top-headlines?country=us&apiKey=c0936d28ce4548bd94f3b38fc87554d1`
+      );
+      let data = await res.json();
+      console.log(data.articles);
+      setlatelyNews(data.articles);
+    };
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -61,34 +73,55 @@ function News() {
       </Button>
 
       <Grid container>
-        {news ? (
-          news.map((eachnew: any) => {
-            return (
-              <Card sx={{ maxWidth: 345, margin: "5px" }}>
-                <CardMedia
-                  sx={{ height: 140 }}
-                  image={eachnew.urlToImage}
-                  title="green iguana"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    {eachnew.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {eachnew.content}
-                  </Typography>
-                </CardContent>
-                <CardActions>
-                  <Button size="small" href={eachnew.url} target="_blank">
-                    Read more
-                  </Button>
-                </CardActions>
-              </Card>
-            );
-          })
-        ) : (
-          <h1>Enter a valid topic please</h1>
-        )}
+        {news.length > 0
+          ? news.map((eachnew: any) => {
+              return (
+                <Card sx={{ maxWidth: 345, margin: "5px" }}>
+                  <CardMedia
+                    sx={{ height: 140 }}
+                    image={eachnew.urlToImage}
+                    title="green iguana"
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                      {eachnew.title}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {eachnew.content}
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button size="small" href={eachnew.url} target="_blank">
+                      Read more
+                    </Button>
+                  </CardActions>
+                </Card>
+              );
+            })
+          : latelyNews.map((eachnew: any) => {
+              return (
+                <Card sx={{ maxWidth: 345, margin: "5px" }}>
+                  <CardMedia
+                    sx={{ height: 140 }}
+                    image={eachnew.urlToImage}
+                    title="green iguana"
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                      {eachnew.title}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {eachnew.content}
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button size="small" href={eachnew.url} target="_blank">
+                      Read more
+                    </Button>
+                  </CardActions>
+                </Card>
+              );
+            })}
       </Grid>
     </>
   );
