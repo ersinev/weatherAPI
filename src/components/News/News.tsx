@@ -72,7 +72,7 @@ function News() {
         Get data
       </Button>
 
-      <Grid container>
+      <Grid container sx={{display: 'flex', justifyContent: 'center'}}>
         {news.length > 0
           ? news.map((eachnew: any) => {
               return (
