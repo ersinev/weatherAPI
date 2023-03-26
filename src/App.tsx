@@ -44,8 +44,15 @@ function App() {
 
   console.log(userLoginEmail)
   console.log(userLoginPassword)
-
-
+  // ---------------------- CHECK AGAIN --------------------------///
+  window.addEventListener("keydown", (event) => {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      getRealTimeWeather(userInput);
+      getForecastWeather(userInput);
+    }
+  });
+// ------------------------------------------------///
   return (
     <>
       <Layout logout={setisLoggedIn}>
