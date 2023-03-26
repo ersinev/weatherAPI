@@ -1,4 +1,3 @@
-
 import CitySearchInput from "./CitySearchInput"
 import ForecastWeather from "./ForecastWeather"
 import Weather from "./Weather"
