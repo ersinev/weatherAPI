@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 import { Forecast } from "../../types/ForecastWeather";
 
 
-interface ForecastWeatherProps {
-    cityInput: string;
-    forecastData: Forecast | undefined;
-  }
+// interface ForecastWeatherProps {
+//     cityInput: string;
+//     forecastData: Forecast | undefined;
+//   }
 
 const ForecastWeather= (props:any)=> {
   const [forecast3Days, setforecast3Days] = useState<Forecast | undefined>(undefined)
