@@ -9,10 +9,10 @@ import "../src/styles.css";
 import Layout from "./components/Layout/Layout";
 import Login from "./components/Authorization/Login";
 import Home from "./components/HomePage/Home";
-
 import SignUp from "./components/Authorization/SignUp";
 import News from "./components/News/News";
 import Profile from "./components/Profile/Profile";
+
 function App() {
   const [userLoginEmail, setuserLoginEmail] = useState("")
   const [userLoginPassword, setuserLoginPassword] = useState("")
