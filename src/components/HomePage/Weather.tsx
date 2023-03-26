@@ -18,7 +18,11 @@ function Weather(props: WeatherProps) {
     undefined
   );
 
-  
+  window.addEventListener("keydown", key:any=>{
+
+    if (key.keyCode == "13" ) {}
+    
+    });
 
   useEffect(() => {
     setdataLocation(props.realtimedata.location);
