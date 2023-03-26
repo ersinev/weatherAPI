@@ -25,6 +25,7 @@ export default function Footer() {
         display: 'flex',
         flexDirection: 'column',
         minHeight: 'auto',
+        textAlign:'center'
       }}
     >
       
