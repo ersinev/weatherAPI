@@ -17,34 +17,34 @@ function Copyright() {
 
 export default function Footer() {
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        minHeight: 'auto',
-        textAlign:'center'
-      }}
-    >
+    // <Box
+    //   sx={{
+    //     display: 'flex',
+    //     flexDirection: 'column',
+    //     minHeight: 'auto',
+    //     textAlign:'center'
+    //   }}
+    // >
       
-      <Box
-        component="footer"
-        sx={{
-          py: 3,
-          px: 2,
-          mt: 'auto',
-          backgroundColor: (theme) =>
-            theme.palette.mode === 'light'
-              ? theme.palette.grey[200]
-              : theme.palette.grey[800],
-        }}
-      >
-        <Container maxWidth="sm">
-          <Typography variant="body1">
+    //   <Box
+    //     component="footer"
+    //     sx={{
+    //       py: 3,
+    //       px: 2,
+    //       mt: 'auto',
+    //       backgroundColor: (theme) =>
+    //         theme.palette.mode === 'light'
+    //           ? theme.palette.grey[200]
+    //           : theme.palette.grey[800],
+    //     }}
+    //   >
+    //     <Container maxWidth="sm">
+    //       <Typography variant="body1">
             
-          </Typography>
-          <Copyright />
-        </Container>
-      </Box>
-    </Box>
+    //       </Typography>
+    //       <Copyright />
+    //     </Container>
+    //   </Box>
+    // </Box>
   );
 }
