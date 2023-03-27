@@ -25,7 +25,7 @@ export default function Footer() {
         textAlign:'center'
       }}
     >
-{/*       
+      
       <Box
         component="footer"
         sx={{
@@ -37,7 +37,7 @@ export default function Footer() {
               ? theme.palette.grey[200]
               : theme.palette.grey[800],
         }}
-      > */}
+      >
         <Container maxWidth="sm">
           <Typography variant="body1">
             
